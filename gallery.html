@@ -119,7 +119,7 @@ const $items = document.querySelectorAll('.carousel-item')
 const $cursors = document.querySelectorAll('.cursor')
 
 const displayItems = (item, index, active) => {
-  const zIndex = getZindex([...$items], active)[index]
+  const zIndex = index === active ? $items.length : $items.length - Math.abs(active - index)
   item.style.setProperty('--zIndex', zIndex)
   item.style.setProperty('--active', (index-active)/$items.length)
 }
